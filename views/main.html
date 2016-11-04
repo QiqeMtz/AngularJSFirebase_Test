@@ -1,0 +1,108 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="jumbotron">
+        <h3>CRUD utilizando Firebase</h3>
+        <p class="lead">
+           ...y AngularJS
+        </p>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title">Datos del nuevo empleado</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <form name="datosempleado" id="datosempleado" novalidate>
+
+                <div class="form-group">
+                  <label for="nombre">Nombre del empleado</label>
+                  <input type="text" class="form-control" name="nombre" ng-model="emp.nombre" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="puesto">Puesto</label>
+                  <input type="text" class="form-control" name="puesto" ng-model="emp.puesto" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="departamento">Departamento</label>
+                  <input type="text" class="form-control" name="departamento" ng-model="emp.departamento" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="salario">Salario</label>
+                  <input type="number" class="form-control" name="salario" ng-model="emp.salario" min="1000" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="fecha">Fecha Ingreso</label>
+                  <input type="date" class="form-control" name="fecha" ng-model="emp.fecha" required>
+                </div>
+
+                <input type="submit" ng-click="nuevoEmpleado()" id="btnSave" value="Registrar Empleado"  ng-disabled="datosempleado.$invalid" class="btn btn-md btn-success">
+
+              </form>
+
+              <br>
+              <p>Archivo JSON</p>
+              <pre ng-model="jsonFile">empleado = {{emp | json}}</pre>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Empleados Registrados</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Nombre Empleado</th>
+                      <th>Puesto</th>
+                      <th>Departamento</th>
+                      <th>Salario</th>
+                      <th>Fecha De Ingreso</th>
+                      <th>Accion 1</th>
+                      <th>Accion 2</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="empleado in empleadosdata">
+                      <td>{{ empleado.nombre }}</td>
+                      <td>{{ empleado.puesto }}</td>
+                      <td>{{ empleado.departamento }}</td>
+                      <td>{{ empleado.sueldo }}</td>
+                      <td>{{ empleado.fecha }}</td>
+                      <td><a href="#/edit/{{empleado.$id}}" class="btn btn-small btn-primary">Editar</a></td>
+                      <td><a ng-click="eliminaEmpleado(empleado.$id)" class="btn btn-small btn-danger">Eliminar</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

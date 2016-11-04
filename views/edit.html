@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="jumbotron">
+        <h3>CRUD utilizando Firebase</h3>
+        <p class="lead">
+           ...y AngularJS 
+        </p>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Editar un empleado</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+
+              <form name="edit_form" id="datosempleado" novalidate>
+
+                <div class="form-group">
+                  <label for="nombre">Nombre del empleado</label>
+                  <input class="form-control" name="nombre" id="_nombre" ng-model="empleado.nombre" ng-click="onTextClick($event)">
+                </div>
+
+                <div class="form-group">
+                  <label for="puesto">Puesto</label>
+                  <input class="form-control" name="puesto" id="_puesto" ng-model="empleado.puesto" ng-click="onTextClick($event)">
+                </div>
+
+                <div class="form-group">
+                  <label for="departamento">Departamento</label>
+                  <input class="form-control" name="departamento" id="_departamento" ng-model="empleado.departamento" ng-click="onTextClick($event)">
+                </div>
+
+                <div class="form-group">
+                  <label for="salario">Salario</label>
+                  <input class="form-control" name="salario" id="_salario" ng-model="empleado.sueldo" ng-click="onTextClick($event)">
+                </div>
+
+                <div class="form-group">
+                  <label for="fecha">Fecha Ingreso</label>
+                  <input type="date" class="form-control" name="fecha" ng-model="emp.fecha" required>
+                </div>
+
+                <input type="submit" ng-click="editarEmpleado()" id="btnSave" value="Guardar"  ng-disabled="edit_form.$invalid" class="btn btn-md btn-success">
+                <a href="#/empleados" class="btn btn-small btn-danger">Cancelar</a>
+              </form>
+
+              <br>
+              <p>Archivo JSON</p>
+              <pre ng-model="jsonFile">empleado = {{emp | json}}</pre>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
